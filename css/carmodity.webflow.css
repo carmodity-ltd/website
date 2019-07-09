@@ -1497,7 +1497,10 @@ figcaption {
     display: -webkit-flex;
     display: -ms-flexbox;
     display: flex;
-    margin-right: 20px;
+    width: 50px;
+    height: 50px;
+    margin-top: -10px;
+    margin-right: 0px;
     clear: both;
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
@@ -1519,10 +1522,11 @@ figcaption {
     -webkit-order: 0;
     -ms-flex-order: 0;
     order: 0;
-    -webkit-box-flex: 0;
-    -webkit-flex: 0 0 auto;
-    -ms-flex: 0 0 auto;
-    flex: 0 0 auto;
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    text-align: center;
   }
   .menu-button.w--open {
     -webkit-box-flex: 0;
