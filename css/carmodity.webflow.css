@@ -716,7 +716,7 @@ figcaption {
   display: flex;
   margin-right: 0px;
   margin-bottom: 0px;
-  padding: 0px;
+  padding: 0px 80px 0px 0px;
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
   -webkit-flex-direction: row;
@@ -739,7 +739,7 @@ figcaption {
 .image-5 {
   width: auto;
   padding-right: 0px;
-  padding-left: 0px;
+  padding-left: 20px;
 }
 
 .body {
@@ -1297,6 +1297,9 @@ figcaption {
   .detail-header-image {
     height: 460px;
   }
+  .paragraph {
+    padding-right: 0px;
+  }
   .text-block-8 {
     overflow: visible;
     width: auto;
@@ -1400,6 +1403,9 @@ figcaption {
   }
   ._404-wrap {
     padding: 30px;
+  }
+  .paragraph {
+    padding-right: 0px;
   }
   .text-block-7 {
     padding-bottom: 40px;
@@ -1550,6 +1556,7 @@ figcaption {
     text-align: left;
   }
   .paragraph {
+    padding-right: 0px;
     font-size: 18px;
     line-height: 24px;
   }
