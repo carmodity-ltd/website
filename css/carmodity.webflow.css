@@ -738,6 +738,8 @@ figcaption {
 
 .image-5 {
   width: auto;
+  padding-right: 0px;
+  padding-left: 0px;
 }
 
 .body {
@@ -1542,6 +1544,25 @@ figcaption {
     float: none;
     clear: none;
     text-align: left;
+  }
+  .paragraph {
+    font-size: 18px;
+    line-height: 24px;
+  }
+  .image-5 {
+    height: 150px;
+  }
+  .heading {
+    font-size: 25px;
+    line-height: 40px;
+  }
+  .text-block-5 {
+    padding-left: 0px;
+    font-size: 20px;
+  }
+  .div-block-6 {
+    padding-right: 20px;
+    padding-left: 20px;
   }
   .button-11 {
     display: block;
