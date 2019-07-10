@@ -288,6 +288,10 @@ figcaption {
 
 .logo-link {
   z-index: 1;
+  -webkit-box-flex: 0;
+  -webkit-flex: 0 auto;
+  -ms-flex: 0 auto;
+  flex: 0 auto;
 }
 
 .logo-link:hover {
@@ -702,6 +706,7 @@ figcaption {
 
 .image-2 {
   display: block;
+  width: auto;
   clear: none;
   -webkit-transform: none;
   -ms-transform: none;
@@ -893,7 +898,7 @@ figcaption {
   margin-right: auto;
   margin-left: auto;
   padding-right: 0px;
-  padding-left: 0px;
+  padding-left: 170px;
   float: right;
   color: #fff;
   font-size: 23px;
@@ -1024,8 +1029,7 @@ figcaption {
 
 .paragraph-6 {
   margin-bottom: 0px;
-  padding-top: 10px;
-  padding-bottom: 10px;
+  padding: 10px 20%;
   background-color: #c8c8c8;
 }
 
@@ -1152,14 +1156,19 @@ figcaption {
 }
 
 .book {
+  position: static;
+  left: auto;
+  top: 0%;
+  right: 0%;
+  bottom: auto;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-flex: 1;
-  -webkit-flex: 1;
-  -ms-flex: 1;
-  flex: 1;
+  -webkit-box-flex: 0;
+  -webkit-flex: 0 auto;
+  -ms-flex: 0 auto;
+  flex: 0 auto;
   border-radius: 5px;
   background-color: #000;
   color: #fff;
@@ -1170,6 +1179,23 @@ figcaption {
 
 .book:hover {
   color: #fff;
+}
+
+.text-block-17 {
+  text-align: center;
+}
+
+.tabs {
+  padding-left: 0px;
+}
+
+.tabs-menu {
+  padding-left: 0px;
+}
+
+.tab-link-tab-2 {
+  margin-right: 5px;
+  margin-left: 5px;
 }
 
 @media (max-width: 991px) {
@@ -1301,6 +1327,9 @@ figcaption {
   .paragraph {
     padding-right: 0px;
   }
+  .text-block-7 {
+    padding-left: 0px;
+  }
   .text-block-8 {
     overflow: visible;
     width: auto;
@@ -1316,6 +1345,20 @@ figcaption {
     margin-left: 0px;
     text-align: center;
   }
+  .text-block-12 {
+    display: block;
+    padding-left: 0px;
+    float: none;
+    clear: none;
+    -webkit-align-self: center;
+    -ms-flex-item-align: center;
+    -ms-grid-row-align: center;
+    align-self: center;
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 auto;
+    -ms-flex: 0 auto;
+    flex: 0 auto;
+  }
   .bold-text {
     margin-left: 0px;
   }
@@ -1324,6 +1367,29 @@ figcaption {
   }
   .image-13 {
     margin-top: 10px;
+  }
+  .image-14 {
+    float: none;
+    clear: both;
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 auto;
+    -ms-flex: 0 auto;
+    flex: 0 auto;
+  }
+  .text-block-13 {
+    padding-left: 0px;
+    float: none;
+    clear: both;
+    -webkit-align-self: center;
+    -ms-flex-item-align: center;
+    -ms-grid-row-align: center;
+    align-self: center;
+  }
+  .image-15 {
+    padding-right: 0px;
+    padding-left: 0px;
+    clear: both;
+    text-align: left;
   }
   .image-16 {
     margin-top: 50px;
@@ -1344,6 +1410,28 @@ figcaption {
     background-color: #c00;
   }
   .book {
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    text-align: center;
+  }
+  .column-13 {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    text-align: center;
+  }
+  .column-14 {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
     -webkit-box-pack: center;
     -webkit-justify-content: center;
     -ms-flex-pack: center;
@@ -1409,8 +1497,17 @@ figcaption {
     padding-right: 0px;
   }
   .text-block-7 {
+    padding-right: 30px;
     padding-bottom: 40px;
+    padding-left: 30px;
     float: none;
+  }
+  .text-block-8 {
+    padding-right: 30px;
+    padding-left: 30px;
+  }
+  .paragraph-6 {
+    padding-right: 20%;
   }
   .column-9 {
     padding-top: 40px;
@@ -1439,7 +1536,11 @@ figcaption {
     font-size: 36px;
     line-height: 48px;
   }
+  .logo-link {
+    margin-left: -20px;
+  }
   .logo-link.w--current {
+    margin-left: -20px;
     -webkit-box-flex: 0;
     -webkit-flex: 0 auto;
     -ms-flex: 0 auto;
@@ -1447,6 +1548,8 @@ figcaption {
   }
   .menu-icon {
     overflow: visible;
+    margin-top: 10px;
+    margin-bottom: 0px;
     margin-left: 0px;
     padding-left: 0px;
     float: none;
@@ -1459,6 +1562,8 @@ figcaption {
   }
   .menu {
     position: static;
+    margin-top: 0px;
+    margin-bottom: 0px;
     margin-left: 15px;
     -webkit-align-self: auto;
     -ms-flex-item-align: auto;
@@ -1491,23 +1596,27 @@ figcaption {
     flex: 1;
   }
   .navigation {
+    margin-top: -20px;
+    margin-bottom: 0px;
     padding-right: 20px;
     padding-left: 20px;
   }
   .menu-button {
     position: absolute;
-    left: auto;
+    left: 0%;
     top: 0%;
-    right: 0%;
+    right: auto;
     bottom: 0%;
     display: -webkit-box;
     display: -webkit-flex;
     display: -ms-flexbox;
     display: flex;
-    width: 50px;
-    height: 50px;
-    margin-top: -10px;
+    width: 35px;
+    height: 40px;
+    margin-top: 10px;
     margin-right: 0px;
+    margin-left: 0px;
+    padding-right: 0px;
     clear: both;
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
@@ -1529,10 +1638,10 @@ figcaption {
     -webkit-order: 0;
     -ms-flex-order: 0;
     order: 0;
-    -webkit-box-flex: 1;
-    -webkit-flex: 1;
-    -ms-flex: 1;
-    flex: 1;
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 auto;
+    -ms-flex: 0 auto;
+    flex: 0 auto;
     text-align: center;
   }
   .menu-button.w--open {
@@ -1551,7 +1660,7 @@ figcaption {
   }
   .image {
     display: block;
-    margin-right: 0px;
+    margin: 0px 0px -16px;
     float: none;
     clear: none;
     text-align: left;
@@ -1584,6 +1693,17 @@ figcaption {
     flex: 1;
     text-align: center;
   }
+  .text-block-7 {
+    padding-right: 0px;
+    padding-left: 0px;
+  }
+  .text-block-8 {
+    padding-right: 0px;
+    padding-left: 0px;
+  }
+  .paragraph-6 {
+    text-align: center;
+  }
   .bold-text {
     margin-left: 0px;
     font-size: 15px;
@@ -1591,9 +1711,34 @@ figcaption {
     font-weight: 700;
     text-align: left;
   }
+  .image-14 {
+    margin-right: auto;
+    margin-left: auto;
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 auto;
+    -ms-flex: 0 auto;
+    flex: 0 auto;
+  }
   .image-15 {
     float: none;
     clear: none;
+  }
+  .book {
+    margin: 12px -10px 0px 25px;
+    padding: 5px;
+  }
+  .tab-link-tab-2 {
+    margin-right: 0px;
+    margin-left: 0px;
+  }
+  .text-block-18 {
+    text-align: center;
+  }
+  .text-block-19 {
+    text-align: center;
+  }
+  .column-12 {
+    display: block;
   }
 }
 
