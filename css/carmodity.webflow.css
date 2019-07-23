@@ -1198,6 +1198,20 @@ figcaption {
   margin-left: 5px;
 }
 
+.text-block-20 {
+  padding-top: 5px;
+  text-align: center;
+}
+
+.text-block-21 {
+  padding-top: 5px;
+  text-align: center;
+}
+
+.tabs-menu-2 {
+  text-align: center;
+}
+
 @media (max-width: 991px) {
   .about-us.cc-cta {
     padding-right: 0px;
