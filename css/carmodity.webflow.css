@@ -125,8 +125,8 @@ figcaption {
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  margin: 0px auto;
-  padding: 20px;
+  margin: 18px auto 0px;
+  padding: 0px 20px;
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
   -webkit-flex-direction: row;
@@ -707,6 +707,8 @@ figcaption {
 .image-2 {
   display: block;
   width: auto;
+  padding-top: 4px;
+  padding-bottom: 4px;
   clear: none;
   -webkit-transform: none;
   -ms-transform: none;
@@ -722,7 +724,7 @@ figcaption {
   display: flex;
   margin-right: 0px;
   margin-bottom: 0px;
-  padding: 0px 80px 0px 0px;
+  padding: 0px 95px 0px 0px;
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
   -webkit-flex-direction: row;
@@ -854,7 +856,7 @@ figcaption {
 
 .slide-2 {
   position: static;
-  background-image: url('../images/Screen-Shot-2019-06-26-at-3.20.01-PM.png');
+  background-image: url('../images/ext_G7Q_deg04.jpg');
   background-position: 0px 0px;
   background-size: cover;
 }
@@ -903,10 +905,11 @@ figcaption {
   color: #fff;
   font-size: 23px;
   text-align: center;
+  text-transform: none;
 }
 
 .text-block-8 {
-  width: 400px;
+  width: 500px;
   padding-right: 0px;
   padding-left: 0px;
   color: #fff;
@@ -916,15 +919,14 @@ figcaption {
 
 .image-9 {
   margin-right: auto;
-  margin-left: auto;
+  margin-left: 230px;
   padding-top: 0px;
+  padding-left: 0px;
 }
 
 .button-12 {
   width: 190px;
-  margin-top: 20px;
-  margin-right: 0px;
-  margin-left: 0px;
+  margin: 20px 0px 29px;
   float: none;
   clear: both;
   border-radius: 20px;
@@ -1060,6 +1062,10 @@ figcaption {
 .image-13 {
   margin-top: -10px;
   margin-left: 0px;
+}
+
+.footer {
+  padding-bottom: 13px;
 }
 
 .columns-9 {
@@ -1210,6 +1216,32 @@ figcaption {
 
 .tabs-menu-2 {
   text-align: center;
+}
+
+.slide-5 {
+  background-image: url('../images/34191333814_99259a05ff_b.jpg');
+  background-position: 0px 0px;
+  background-size: cover;
+}
+
+.bold-text-2 {
+  width: 700px;
+  font-size: 23px;
+}
+
+.column-15 {
+  text-align: left;
+  text-transform: capitalize;
+}
+
+.text-block-22 {
+  margin-top: 59px;
+  margin-left: 108px;
+  color: #fefeff;
+}
+
+.bold-text-3 {
+  font-size: 17px;
 }
 
 @media (max-width: 991px) {
