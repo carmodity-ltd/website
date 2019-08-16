@@ -919,9 +919,13 @@ figcaption {
 
 .image-9 {
   margin-right: auto;
-  margin-left: 230px;
+  margin-left: 0px;
   padding-top: 0px;
   padding-left: 0px;
+  -webkit-box-flex: 0;
+  -webkit-flex: 0 auto;
+  -ms-flex: 0 auto;
+  flex: 0 auto;
 }
 
 .button-12 {
@@ -1235,13 +1239,36 @@ figcaption {
 }
 
 .text-block-22 {
-  margin-top: 59px;
-  margin-left: 108px;
+  display: block;
+  margin-top: 10px;
+  margin-left: 0px;
+  float: none;
+  clear: none;
   color: #fefeff;
+  font-size: 17px;
+  text-align: left;
 }
 
 .bold-text-3 {
   font-size: 17px;
+}
+
+.div-block-10 {
+  position: static;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  margin-right: 20px;
+  clear: none;
+  -webkit-box-pack: start;
+  -webkit-justify-content: flex-start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
+}
+
+.div-block-11 {
+  margin-left: 20px;
 }
 
 @media (max-width: 991px) {
