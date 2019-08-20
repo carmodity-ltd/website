@@ -1219,6 +1219,7 @@ figcaption {
 }
 
 .tabs-menu-2 {
+  padding-left: 10px;
   text-align: center;
 }
 
@@ -1269,6 +1270,41 @@ figcaption {
 
 .div-block-11 {
   margin-left: 20px;
+}
+
+.tab-link-tab-3-2 {
+  width: 257px;
+  margin-right: 0px;
+  margin-left: 0px;
+}
+
+.tab-link-tab-3-2.w--current {
+  margin-right: 0px;
+  margin-left: 0px;
+}
+
+.tab-link-tab-4 {
+  width: 257px;
+  margin-left: 0px;
+}
+
+.tab-link-tab-4.w--current {
+  margin-right: 0px;
+  margin-left: 0px;
+}
+
+.tab-link-tab-1 {
+  margin-right: 0px;
+}
+
+.tab-link-tab-1.w--current {
+  margin-right: 0px;
+  margin-left: 0px;
+}
+
+.tab-link-tab-2-2 {
+  margin-right: 0px;
+  margin-left: 0px;
 }
 
 @media (max-width: 991px) {
