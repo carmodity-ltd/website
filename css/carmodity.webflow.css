@@ -1028,6 +1028,8 @@ figcaption {
 
 .text-block-12 {
   display: block;
+  margin-top: -15px;
+  padding-top: 0px;
   float: right;
   clear: right;
   text-align: center;
@@ -1096,6 +1098,7 @@ figcaption {
 }
 
 .text-block-13 {
+  margin-top: -15px;
   float: left;
   text-align: center;
 }
@@ -1305,6 +1308,32 @@ figcaption {
 .tab-link-tab-2-2 {
   margin-right: 0px;
   margin-left: 0px;
+}
+
+.image-17 {
+  float: right;
+  clear: right;
+}
+
+.div-block-12 {
+  float: right;
+  clear: right;
+  text-align: center;
+}
+
+.text-block-23 {
+  width: 195px;
+  margin-top: -15px;
+  float: none;
+  text-align: center;
+}
+
+.columns-10 {
+  margin-top: 67px;
+}
+
+.text-block-24 {
+  margin-top: -15px;
 }
 
 @media (max-width: 991px) {
