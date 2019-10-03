@@ -993,7 +993,7 @@ figcaption {
   text-align: center;
 }
 
-.tab-pane-tab-2 {
+.error-0b1f4da9-1e04-a993-f456-0b72a79ee4a0 {
   text-align: left;
 }
 
@@ -1125,6 +1125,9 @@ figcaption {
 }
 
 .heading-5 {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-size: 30px;
   text-align: center;
 }
 
@@ -1206,7 +1209,7 @@ figcaption {
   padding-left: 0px;
 }
 
-.tab-link-tab-2 {
+.error-860ee0dd-1e35-c9de-554c-6f97bf047c18 {
   margin-right: 5px;
   margin-left: 5px;
 }
@@ -1275,37 +1278,37 @@ figcaption {
   margin-left: 20px;
 }
 
-.tab-link-tab-3-2 {
+.error-54b1312c-5b61-adee-1ece-c6be03d52b11 {
   width: 257px;
   margin-right: 0px;
   margin-left: 0px;
 }
 
-.tab-link-tab-3-2.w--current {
+.error-54b1312c-5b61-adee-1ece-c6be03d52b11.w--current {
   margin-right: 0px;
   margin-left: 0px;
 }
 
-.tab-link-tab-4 {
+.error-87d73489-b008-46e3-715e-e9d782ca4cb8 {
   width: 257px;
   margin-left: 0px;
 }
 
-.tab-link-tab-4.w--current {
+.error-87d73489-b008-46e3-715e-e9d782ca4cb8.w--current {
   margin-right: 0px;
   margin-left: 0px;
 }
 
-.tab-link-tab-1 {
+.error-d9dd3745-b7d8-e5ba-fa8b-b8819e5500b2 {
   margin-right: 0px;
 }
 
-.tab-link-tab-1.w--current {
+.error-d9dd3745-b7d8-e5ba-fa8b-b8819e5500b2.w--current {
   margin-right: 0px;
   margin-left: 0px;
 }
 
-.tab-link-tab-2-2 {
+.error-dcf759b2-c6c0-63f2-8709-8882dca37eb9 {
   margin-right: 0px;
   margin-left: 0px;
 }
@@ -1334,6 +1337,34 @@ figcaption {
 
 .text-block-24 {
   margin-top: -15px;
+}
+
+.text-block-25 {
+  text-align: center;
+}
+
+.slide-6 {
+  background-image: url('../images/2015-chevrolet-cruze_100465200.jpg');
+  background-position: 0px 0px;
+  background-size: cover;
+}
+
+.slide-1 {
+  background-image: url('../images/ext_GAN_deg01.jpg');
+  background-position: 0px 0px;
+  background-size: cover;
+}
+
+.slide-7 {
+  background-image: url('../images/2014-Chevrolet-Cruze-TD-021.jpg');
+  background-position: 0px 0px;
+  background-size: cover;
+}
+
+.slide-8 {
+  background-image: url('../images/mm_gal_item_c2.img_resize.img_stage._0-1.jpg');
+  background-position: 0px 0px;
+  background-size: cover;
 }
 
 @media (max-width: 991px) {
@@ -1655,6 +1686,12 @@ figcaption {
   .column-10 {
     display: none;
   }
+  .div-block-12 {
+    float: left;
+  }
+  .columns-10 {
+    margin-left: 178px;
+  }
 }
 
 @media (max-width: 479px) {
@@ -1865,7 +1902,7 @@ figcaption {
     margin: 12px -10px 0px 25px;
     padding: 5px;
   }
-  .tab-link-tab-2 {
+  .error-860ee0dd-1e35-c9de-554c-6f97bf047c18 {
     margin-right: 0px;
     margin-left: 0px;
   }
@@ -1877,6 +1914,19 @@ figcaption {
   }
   .column-12 {
     display: block;
+  }
+  .div-block-12 {
+    float: left;
+    clear: right;
+  }
+  .columns-10 {
+    margin-left: 54px;
+  }
+  .text-block-24 {
+    text-align: center;
+  }
+  .column-16 {
+    clear: none;
   }
 }
 
