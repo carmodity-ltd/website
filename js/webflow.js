@@ -11543,7 +11543,7 @@ exports.getPluginDestination = getPluginDestination;
 var createPluginInstance = function createPluginInstance(element) {
   var instance = window.Webflow.require('lottie').createInstance(element);
 
-  instance.pause();
+  instance.stop();
   instance.setSubframe(true);
   return instance;
 };
@@ -11556,7 +11556,7 @@ var renderPlugin = function renderPlugin(pluginInstance, refState, actionItem) {
   }
 
   var percent = refState[actionItem.actionTypeId].value / 100;
-  pluginInstance.setCurrentRawFrameValue(pluginInstance.totalFrames * percent);
+  pluginInstance.goToFrame(pluginInstance.frames * percent);
 };
 
 exports.renderPlugin = renderPlugin;
@@ -17283,8 +17283,8 @@ Webflow.define('dropdown', module.exports = function ($, _) {
     }
 
     if (!toggleId) {
-      listId = 'w-dropdown-toggle-' + i;
-      data.list.attr('id', listId);
+      toggleId = 'w-dropdown-toggle-' + i;
+      data.toggle.attr('id', toggleId);
     }
 
     data.toggle.attr('aria-controls', listId);
