@@ -198,6 +198,7 @@ blockquote {
 .section.wider-padding.border {
   border-top: 1px solid rgba(9, 106, 208, 0.04);
   border-bottom: 1px solid rgba(9, 106, 208, 0.04);
+  background-color: #fff;
   color: #c00;
 }
 
@@ -896,7 +897,7 @@ blockquote {
 }
 
 .col.lg-8.flex-stretch.md-4.main {
-  width: 90%;
+  width: 80%;
   margin-top: 0px;
   padding-top: 30px;
   padding-bottom: 30px;
@@ -4191,7 +4192,7 @@ blockquote {
   font-family: Knewave, sans-serif;
   color: #fff;
   font-size: 40px;
-  text-shadow: 1px 1px 6px #140d0d;
+  text-shadow: 1px 0 6px rgba(0, 0, 0, 0.7);
   white-space: normal;
 }
 
@@ -4229,6 +4230,12 @@ blockquote {
   -webkit-align-items: flex-end;
   -ms-flex-align: end;
   align-items: flex-end;
+}
+
+.image-15 {
+  margin-right: 10px;
+  padding-right: 0px;
+  border-radius: 30px;
 }
 
 html.w-mod-js *[data-ix="nav-slide"] {
