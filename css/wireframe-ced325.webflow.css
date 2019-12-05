@@ -4189,10 +4189,12 @@ blockquote {
 }
 
 .text-block-3.top {
-  font-family: Knewave, sans-serif;
+  font-family: Ubuntu, Helvetica, sans-serif;
   color: #fff;
   font-size: 40px;
-  text-shadow: 1px 0 6px rgba(0, 0, 0, 0.7);
+  font-style: italic;
+  font-weight: 700;
+  text-shadow: 1px 0 6px #000;
   white-space: normal;
 }
 
