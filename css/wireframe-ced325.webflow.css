@@ -4248,6 +4248,10 @@ blockquote {
   opacity: 1;
 }
 
+.text-block-7 {
+  display: block;
+}
+
 html.w-mod-js *[data-ix="nav-slide"] {
   -webkit-transform: translate(0px, -100px);
   -ms-transform: translate(0px, -100px);
