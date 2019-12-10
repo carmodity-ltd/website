@@ -4240,6 +4240,14 @@ blockquote {
   border-radius: 30px;
 }
 
+.text-block-6 {
+  position: static;
+  display: block;
+  float: none;
+  background-color: transparent;
+  opacity: 1;
+}
+
 html.w-mod-js *[data-ix="nav-slide"] {
   -webkit-transform: translate(0px, -100px);
   -ms-transform: translate(0px, -100px);
