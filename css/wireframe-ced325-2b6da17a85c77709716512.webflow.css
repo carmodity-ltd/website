@@ -1047,6 +1047,7 @@ blockquote {
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
+  padding-bottom: 40px;
   -webkit-box-pack: center;
   -webkit-justify-content: center;
   -ms-flex-pack: center;
@@ -2773,7 +2774,6 @@ blockquote {
 .computer-image {
   position: absolute;
   width: 70vw;
-  max-width: auto;
   margin-left: 10vw;
 }
 
@@ -6421,7 +6421,7 @@ html.w-mod-js *[data-ix="nav-slide"] {
 }
 
 @media screen and (max-width: 479px) {
-  #w-node-61cb226ca16a-68d02d6e {
+  #w-node-61cb226ca16a-6c9d925f {
     -ms-grid-row: span 1;
     grid-row-start: span 1;
     -ms-grid-row-span: 1;
