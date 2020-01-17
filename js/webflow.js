@@ -18961,9 +18961,12 @@ Webflow.define('navbar', module.exports = function ($, _) {
   var inApp = Webflow.env();
   var overlay = '<div class="w-nav-overlay" data-wf-ignore />';
   var namespace = '.w-nav';
-  var buttonOpen = 'w--open';
-  var menuOpen = 'w--nav-menu-open';
-  var linkOpen = 'w--nav-link-open';
+  var navbarOpenedButton = 'w--open';
+  var navbarOpenedMenu = 'w--nav-menu-open';
+  var navbarOpenedDropdown = 'w--nav-dropdown-open';
+  var navbarOpenedDropdownToggle = 'w--nav-dropdown-toggle-open';
+  var navbarOpenedDropdownList = 'w--nav-dropdown-list-open';
+  var navbarOpenedLink = 'w--nav-link-open';
   var ix = IXEvents.triggers;
   var menuSibling = $(); // -----------------------------------
   // Module methods
@@ -19026,6 +19029,8 @@ Webflow.define('navbar', module.exports = function ($, _) {
     data.menu = $el.find('.w-nav-menu');
     data.links = data.menu.find('.w-nav-link');
     data.dropdowns = data.menu.find('.w-dropdown');
+    data.dropdownToggle = data.menu.find('.w-dropdown-toggle');
+    data.dropdownList = data.menu.find('.w-dropdown-list');
     data.button = $el.find('.w-nav-button');
     data.container = $el.find('.w-container');
     data.outside = outside(data); // Remove old events
@@ -19226,9 +19231,12 @@ Webflow.define('navbar', module.exports = function ($, _) {
     }
 
     data.open = true;
-    data.menu.addClass(menuOpen);
-    data.links.addClass(linkOpen);
-    data.button.addClass(buttonOpen);
+    data.menu.addClass(navbarOpenedMenu);
+    data.links.addClass(navbarOpenedLink);
+    data.dropdowns.addClass(navbarOpenedDropdown);
+    data.dropdownToggle.addClass(navbarOpenedDropdownToggle);
+    data.dropdownList.addClass(navbarOpenedDropdownList);
+    data.button.addClass(navbarOpenedButton);
     var config = data.config;
     var animation = config.animation;
 
@@ -19302,7 +19310,7 @@ Webflow.define('navbar', module.exports = function ($, _) {
     }
 
     data.open = false;
-    data.button.removeClass(buttonOpen);
+    data.button.removeClass(navbarOpenedButton);
     var config = data.config;
 
     if (config.animation === 'none' || !tram.support.transform || config.duration <= 0) {
@@ -19343,8 +19351,11 @@ Webflow.define('navbar', module.exports = function ($, _) {
         x: 0,
         y: 0
       });
-      data.menu.removeClass(menuOpen);
-      data.links.removeClass(linkOpen);
+      data.menu.removeClass(navbarOpenedMenu);
+      data.links.removeClass(navbarOpenedLink);
+      data.dropdowns.removeClass(navbarOpenedDropdown);
+      data.dropdownToggle.removeClass(navbarOpenedDropdownToggle);
+      data.dropdownList.removeClass(navbarOpenedDropdownList);
 
       if (data.overlay && data.overlay.children().length) {
         // Move menu back to parent at the original location
