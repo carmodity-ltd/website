@@ -171,6 +171,7 @@ blockquote {
 }
 
 .section.wider-padding {
+  margin-bottom: 0px;
   padding-top: 50px;
   padding-bottom: 50px;
   -webkit-box-orient: vertical;
@@ -196,6 +197,7 @@ blockquote {
 }
 
 .section.wider-padding.border {
+  margin-top: 15px;
   border-top: 1px solid rgba(9, 106, 208, 0.04);
   border-bottom: 1px solid rgba(9, 106, 208, 0.04);
   background-color: #fff;
@@ -247,8 +249,10 @@ blockquote {
   display: flex;
   height: 80vh;
   min-height: 800px;
+  margin-top: 0px;
   margin-bottom: 0px;
   padding-top: 0px;
+  padding-bottom: 0px;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
   -webkit-flex-direction: column;
@@ -720,6 +724,11 @@ blockquote {
   -webkit-align-items: stretch;
   -ms-flex-align: stretch;
   align-items: stretch;
+}
+
+.col.lg-3.sm-2 {
+  margin-top: 1px;
+  padding-top: 0px;
 }
 
 .col.lg-1 {
@@ -3528,6 +3537,8 @@ blockquote {
 }
 
 .div-block-51 {
+  margin-top: 0px;
+  margin-bottom: -40px;
   background-image: url('../images/carmody.jpg');
   background-position: 50% 100%;
   background-size: cover;
@@ -3937,6 +3948,7 @@ blockquote {
 .slide-3 {
   position: relative;
   overflow: visible;
+  margin-bottom: 0px;
   padding-bottom: 0px;
   border-bottom: 1px solid #000;
 }
@@ -4298,6 +4310,11 @@ blockquote {
   opacity: 1;
   color: #fff;
   text-decoration: none;
+}
+
+.columns-5 {
+  float: none;
+  text-align: center;
 }
 
 html.w-mod-js *[data-ix="nav-slide"] {
@@ -6417,6 +6434,9 @@ html.w-mod-js *[data-ix="nav-slide"] {
     -ms-flex-align: center;
     align-items: center;
     text-align: center;
+  }
+  .div-block-51 {
+    margin-bottom: -40px;
   }
   .bold-text {
     font-weight: 500;

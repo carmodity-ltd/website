@@ -17015,38 +17015,31 @@ Webflow.define('scroll', module.exports = function ($) {
 
 /**
  * Webflow: Touch events
+ * Supports legacy 'tap' event
+ * Adds a 'swipe' event to desktop and mobile
  */
 
 var Webflow = __webpack_require__(2);
 
 Webflow.define('touch', module.exports = function ($) {
   var api = {};
-  var fallback = !document.addEventListener;
-  var getSelection = window.getSelection; // Fallback to click events in old IE
+  var getSelection = window.getSelection; // Delegate all legacy 'tap' events to 'click'
 
-  if (fallback) {
-    $.event.special.tap = {
-      bindType: 'click',
-      delegateType: 'click'
-    };
-  }
+  $.event.special.tap = {
+    bindType: 'click',
+    delegateType: 'click'
+  };
 
   api.init = function (el) {
-    if (fallback) {
-      return null;
-    }
-
     el = typeof el === 'string' ? $(el).get(0) : el;
     return el ? new Touch(el) : null;
   };
 
   function Touch(el) {
     var active = false;
-    var dirty = false;
     var useTouch = false;
     var thresholdX = Math.min(Math.round(window.innerWidth * 0.04), 40);
     var startX;
-    var startY;
     var lastX;
     el.addEventListener('touchstart', start, false);
     el.addEventListener('touchmove', move, false);
@@ -17066,15 +17059,12 @@ Webflow.define('touch', module.exports = function ($) {
       }
 
       active = true;
-      dirty = false;
 
       if (touches) {
         useTouch = true;
         startX = touches[0].clientX;
-        startY = touches[0].clientY;
       } else {
         startX = evt.clientX;
-        startY = evt.clientY;
       }
 
       lastX = startX;
@@ -17093,7 +17083,6 @@ Webflow.define('touch', module.exports = function ($) {
 
       var touches = evt.touches;
       var x = touches ? touches[0].clientX : evt.clientX;
-      var y = touches ? touches[0].clientY : evt.clientY;
       var velocityX = x - lastX;
       lastX = x; // Allow swipes while pointer is down, but prevent them during text selection
 
@@ -17102,11 +17091,6 @@ Webflow.define('touch', module.exports = function ($) {
           direction: velocityX > 0 ? 'right' : 'left'
         });
         cancel();
-      } // If pointer moves more than 10px flag to cancel tap
-
-
-      if (Math.abs(x - startX) > 10 || Math.abs(y - startY) > 10) {
-        dirty = true;
       }
     }
 
@@ -17122,10 +17106,6 @@ Webflow.define('touch', module.exports = function ($) {
         evt.stopPropagation();
         useTouch = false;
         return;
-      }
-
-      if (!dirty) {
-        triggerEvent('tap', evt);
       }
     }
 
@@ -17199,6 +17179,7 @@ Webflow.define('dropdown', module.exports = function ($, _) {
   var designer;
   var inApp = Webflow.env();
   var touch = Webflow.env.touch;
+  var mouseUpEvent = touch ? 'click' : 'mouseup';
   var namespace = '.w-dropdown';
   var stateOpen = 'w--open';
   var closeEvent = 'w-close' + namespace;
@@ -17271,7 +17252,7 @@ Webflow.define('dropdown', module.exports = function ($, _) {
     if (designer) {
       $el.on('setting' + namespace, handler(data));
     } else {
-      data.toggle.on(mouseOrTap() + namespace, toggle(data, FORCE_CLOSE));
+      data.toggle.on(mouseUpEvent + namespace, toggle(data, FORCE_CLOSE));
 
       if (data.config.hover) {
         data.toggle.on('mouseenter' + namespace, enter(data));
@@ -17380,12 +17361,12 @@ Webflow.define('dropdown', module.exports = function ($, _) {
     ix.intro(0, data.el[0]);
     Webflow.redraw.up(); // Increase z-index to keep above other managed dropdowns
 
-    data.manageZ && data.el.css('z-index', defaultZIndex + 1); // Listen for tap outside events
+    data.manageZ && data.el.css('z-index', defaultZIndex + 1); // Listen for click outside events
 
     var isEditor = Webflow.env('editor');
 
     if (!designer) {
-      $doc.on(mouseOrTap() + namespace, data.outside);
+      $doc.on(mouseUpEvent + namespace, data.outside);
     }
 
     if (data.hovering && !isEditor) {
@@ -17424,9 +17405,9 @@ Webflow.define('dropdown', module.exports = function ($, _) {
 
     data.open = false;
     var config = data.config;
-    ix.outro(0, data.el[0]); // Stop listening for tap outside events
+    ix.outro(0, data.el[0]); // Stop listening for click outside events
 
-    $doc.off(mouseOrTap() + namespace, data.outside);
+    $doc.off(mouseUpEvent + namespace, data.outside);
     data.el.off('mouseleave' + namespace, data.leave);
     $doc.off('mousemove' + namespace, data.moveOutside); // Clear previous delay
 
@@ -17460,10 +17441,10 @@ Webflow.define('dropdown', module.exports = function ($, _) {
   }
 
   function outside(data) {
-    // Unbind previous tap handler if it exists
+    // Unbind previous click handler if it exists
     if (data.outside) {
-      $doc.off(mouseOrTap() + namespace, data.outside);
-    } // Close menu when tapped outside
+      $doc.off(mouseUpEvent + namespace, data.outside);
+    } // Close menu when clicked outside
 
 
     return _.debounce(function (evt) {
@@ -17672,10 +17653,6 @@ Webflow.define('dropdown', module.exports = function ($, _) {
           return; // noop
         }
     }
-  }
-
-  function mouseOrTap() {
-    return touch ? 'tap' : 'mouseup';
   } // Export module
 
 
@@ -18413,9 +18390,9 @@ function createLightbox(window, document, $, container) {
     $refs.lightbox = dom('backdrop hide').append($refs.container); // We are delegating events for performance reasons and also
     // to not have to reattach handlers when images change.
 
-    $refs.strip.on('tap', selector('item'), itemTapHandler);
-    $refs.content.on('swipe', swipeHandler).on('tap', selector('left'), handlerPrev).on('tap', selector('right'), handlerNext).on('tap', selector('close'), handlerHide).on('tap', selector('image, caption'), handlerNext);
-    $refs.container.on('tap', selector('view'), handlerHide) // Prevent images from being dragged around.
+    $refs.strip.on('click', selector('item'), itemTapHandler);
+    $refs.content.on('swipe', swipeHandler).on('click', selector('left'), handlerPrev).on('click', selector('right'), handlerNext).on('click', selector('close'), handlerHide).on('click', selector('image, caption'), handlerNext);
+    $refs.container.on('click', selector('view'), handlerHide) // Prevent images from being dragged around.
     .on('dragstart', selector('img'), preventDefault);
     $refs.lightbox.on('keydown', keyHandler) // IE loses focus to inner nodes without letting us know.
     .on('focusin', focusThis); // The `tabindex` attribute is needed to enable non-input elements
@@ -18852,7 +18829,7 @@ Webflow.define('lightbox', module.exports = function ($) {
         if (designer) {
           data.el.on('setting' + namespace, configure.bind(null, data));
         } else {
-          data.el.on('tap' + namespace, tapHandler(data)) // Prevent page scrolling to top when clicking on lightbox triggers.
+          data.el.on('click' + namespace, clickHandler(data)) // Prevent page scrolling to top when clicking on lightbox triggers.
           .on('click' + namespace, function (e) {
             e.preventDefault();
           });
@@ -18902,7 +18879,7 @@ Webflow.define('lightbox', module.exports = function ($) {
     }
   }
 
-  function tapHandler(data) {
+  function clickHandler(data) {
     return function () {
       data.items.length && lightbox(data.items, data.index || 0);
     };
@@ -19046,7 +19023,7 @@ Webflow.define('navbar', module.exports = function ($, _) {
       data.el.on('setting' + namespace, handler(data));
     } else {
       addOverlay(data);
-      data.button.on('tap' + namespace, toggle(data));
+      data.button.on('click' + namespace, toggle(data));
       data.menu.on('click' + namespace, 'a', navigate(data));
     } // Trigger initial resize
 
@@ -19154,9 +19131,9 @@ Webflow.define('navbar', module.exports = function ($, _) {
   }
 
   function outside(data) {
-    // Unbind previous tap handler if it exists
+    // Unbind previous click handler if it exists
     if (data.outside) {
-      $doc.off('tap' + namespace, data.outside);
+      $doc.off('click' + namespace, data.outside);
     }
 
     return function (evt) {
@@ -19164,7 +19141,7 @@ Webflow.define('navbar', module.exports = function ($, _) {
 
       if (inEditor && $target.closest('.w-editor-bem-EditorOverlay').length) {
         return;
-      } // Close menu when tapped outside, debounced to wait for state
+      } // Close menu when clicked outside, debounced to wait for state
 
 
       outsideDebounced(data, $target);
@@ -19251,10 +19228,10 @@ Webflow.define('navbar', module.exports = function ($, _) {
     var navbarEl = data.el[0];
     resize(0, navbarEl);
     ix.intro(0, navbarEl);
-    Webflow.redraw.up(); // Listen for tap outside events
+    Webflow.redraw.up(); // Listen for click outside events
 
     if (!designer) {
-      $doc.on('tap' + namespace, data.outside);
+      $doc.on('click' + namespace, data.outside);
     } // No transition for immediate
 
 
@@ -19317,9 +19294,9 @@ Webflow.define('navbar', module.exports = function ($, _) {
       immediate = true;
     }
 
-    ix.outro(0, data.el[0]); // Stop listening for tap outside events
+    ix.outro(0, data.el[0]); // Stop listening for click outside events
 
-    $doc.off('tap' + namespace, data.outside);
+    $doc.off('click' + namespace, data.outside);
 
     if (immediate) {
       tram(data.menu).stop();
@@ -19509,8 +19486,8 @@ Webflow.define('slider', module.exports = function ($, _) {
       data.hasTimer = false;
     } else {
       data.el.on('swipe' + namespace, handler(data));
-      data.left.on('tap' + namespace, previousFunction(data));
-      data.right.on('tap' + namespace, next(data)); // Start timer if autoplay is true, only once
+      data.left.on('click' + namespace, previousFunction(data));
+      data.right.on('click' + namespace, next(data)); // Start timer if autoplay is true, only once
 
       if (data.config.autoplay && !data.hasTimer) {
         data.hasTimer = true;
@@ -19520,7 +19497,7 @@ Webflow.define('slider', module.exports = function ($, _) {
     } // Listen to nav events
 
 
-    data.nav.on('tap' + namespace, '> div', handler(data)); // Remove gaps from formatted html (for inline-blocks)
+    data.nav.on('click' + namespace, '> div', handler(data)); // Remove gaps from formatted html (for inline-blocks)
 
     if (!inApp) {
       data.mask.contents().filter(function () {
