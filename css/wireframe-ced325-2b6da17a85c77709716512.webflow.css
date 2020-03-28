@@ -3778,9 +3778,11 @@ blockquote {
 }
 
 .image-11 {
-  width: auto;
+  width: 400px;
   height: auto;
   padding-top: 0px;
+  -o-object-fit: fill;
+  object-fit: fill;
 }
 
 .icon-3 {
@@ -4028,8 +4030,12 @@ blockquote {
 }
 
 .heading-11.number {
+  margin-bottom: 35px;
+  padding-bottom: 0px;
   color: #096ad0;
+  font-size: 25px;
   text-align: center;
+  text-decoration: none;
 }
 
 .link-block-4 {
@@ -4314,6 +4320,40 @@ blockquote {
 
 .columns-5 {
   float: none;
+  text-align: center;
+}
+
+.heading-13 {
+  color: #000;
+  font-size: 35px;
+  text-align: center;
+}
+
+.text-block-9 {
+  color: #000;
+  text-align: center;
+}
+
+.image-16 {
+  background-image: url('https://d3e54v103j8qbb.cloudfront.net/img/example-bg.png');
+  background-position: 0px 0px;
+  background-size: 125px;
+  opacity: 1;
+}
+
+.section-3 {
+  margin-top: 119px;
+  background-color: #c00;
+}
+
+.text-block-10 {
+  color: #fff;
+  font-size: 14px;
+}
+
+.text-block-11 {
+  padding-top: 0px;
+  padding-bottom: 0px;
   text-align: center;
 }
 
@@ -5918,6 +5958,9 @@ html.w-mod-js *[data-ix="nav-slide"] {
   .col.lg-6.sm-1.xs-2 {
     width: 100%;
   }
+  .col.lg-6.md-3.sm-2 {
+    padding-top: 10px;
+  }
   .col.lg-6.md-3.xs-2 {
     width: 100%;
   }
@@ -6455,6 +6498,9 @@ html.w-mod-js *[data-ix="nav-slide"] {
   .mask {
     width: 100vw;
   }
+  .paragraph-8 {
+    margin-bottom: -30px;
+  }
   .heading-11.number {
     text-align: center;
   }
@@ -6485,6 +6531,16 @@ html.w-mod-js *[data-ix="nav-slide"] {
     font-family: Ubuntu, Helvetica, sans-serif;
     color: #fff;
     font-size: 20px;
+  }
+  .image-15 {
+    margin-top: 5px;
+  }
+  .column-9 {
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+  .div-block-56 {
+    margin-top: 0px;
   }
 }
 
