@@ -1,0 +1,83 @@
+<?php
+/**
+ * Featured Slider Options
+ *
+ * @package Shutter_Up
+ */
+
+/**
+ * Add hero content options to theme options
+ *
+ * @param WP_Customize_Manager $wp_customize Theme Customizer object.
+ */
+function shutter_up_slider_options( $wp_customize ) {
+	$wp_customize->add_section( 'shutter_up_featured_slider', array(
+			'panel' => 'shutter_up_theme_options',
+			'title' => esc_html__( 'Featured Slider', 'shutter-up' ),
+		)
+	);
+
+	shutter_up_register_option( $wp_customize, array(
+			'name'              => 'shutter_up_slider_option',
+			'default'           => 'disabled',
+			'sanitize_callback' => 'shutter_up_sanitize_select',
+			'choices'           => shutter_up_section_visibility_options(),
+			'label'             => esc_html__( 'Enable on', 'shutter-up' ),
+			'section'           => 'shutter_up_featured_slider',
+			'type'              => 'select',
+		)
+	);
+
+	shutter_up_register_option( $wp_customize, array(
+			'name'              => 'shutter_up_slider_number',
+			'default'           => '4',
+			'sanitize_callback' => 'shutter_up_sanitize_number_range',
+
+			'active_callback'   => 'shutter_up_is_slider_active',
+			'description'       => esc_html__( 'Save and refresh the page if No. of Slides is changed (Max no of slides is 20)', 'shutter-up' ),
+			'input_attrs'       => array(
+				'style' => 'width: 100px;',
+				'min'   => 0,
+				'max'   => 20,
+				'step'  => 1,
+			),
+			'label'             => esc_html__( 'No of Slides', 'shutter-up' ),
+			'section'           => 'shutter_up_featured_slider',
+			'type'              => 'number',
+		)
+	);
+
+	$slider_number = get_theme_mod( 'shutter_up_slider_number', 4 );
+
+	for ( $i = 1; $i <= $slider_number ; $i++ ) {
+
+		// Page Sliders
+		shutter_up_register_option( $wp_customize, array(
+				'name'              => 'shutter_up_slider_page_' . $i,
+				'sanitize_callback' => 'shutter_up_sanitize_post',
+				'active_callback'   => 'shutter_up_is_slider_active',
+				'label'             => esc_html__( 'Page', 'shutter-up' ) . ' # ' . $i,
+				'section'           => 'shutter_up_featured_slider',
+				'type'              => 'dropdown-pages',
+			)
+		);
+
+	} // End for().
+}
+add_action( 'customize_register', 'shutter_up_slider_options' );
+
+/** Active Callback Functions */
+
+if ( ! function_exists( 'shutter_up_is_slider_active' ) ) :
+	/**
+	* Return true if slider is active
+	*
+	* @since Shutter Up 1.0
+	*/
+	function shutter_up_is_slider_active( $control ) {
+		$enable = $control->manager->get_setting( 'shutter_up_slider_option' )->value();
+
+		//return true only if previwed page on customizer matches the type option selected
+		return shutter_up_check_section( $enable );
+	}
+endif;
